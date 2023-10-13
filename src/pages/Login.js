@@ -7,7 +7,17 @@ import axios from 'axios'
 
 
 async function loginUser(data) {
-    return axios.post('http://localhost:8080/login', data)
+    const api = axios.create({
+        timeout: 5800,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    });
+    const headers = {
+        'Content-Type': 'text/plain',
+        'Access-Control-Allow-Origin': '*',
+    };
+    return api.post('http://localhost:8080/login', data, {headers})
         .then(res => res.data)
 }
 

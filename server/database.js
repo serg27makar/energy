@@ -9,7 +9,7 @@ module.exports.setToDB = (data) => {
 }
 
 module.exports.getToDB = (callBack) => {
-    fs.readFile('data.json',function (err, data) {
+    fs.readFile('server/data.json',function (err, data) {
         if (err) throw err;
         try {
             callBack(JSON.parse(data))
